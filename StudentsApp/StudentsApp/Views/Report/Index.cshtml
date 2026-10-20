@@ -1,0 +1,19 @@
+﻿@model StudentsApp.Models.CourseViewModel
+@{
+    ViewBag.Title = "Student Report";
+}
+
+<h2>Student Report</h2>
+
+@using (Html.BeginForm("Generate", "Report", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3">
+        <label for="selectedCourseID" class="form-label">Select Course:</label>
+        @Html.DropDownList("selectedCourseID", Model.Courses, new { @class = "form-select" })
+    </div>
+
+    <button type="submit" name="action" value="preview" formtarget="_blank" class="btn btn-primary">Print Preview</button>
+    <button type="submit" name="action" value="export" class="btn btn-secondary">Export to PDF</button>
+}

@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+	<AutoRefresh>0</AutoRefresh>
+	<DataSources>
+		<DataSource Name="SchoolDB">
+			<ConnectionProperties>
+				<DataProvider>System.Data.DataSet</DataProvider>
+				<ConnectString>/* Local Connection */</ConnectString>
+			</ConnectionProperties>
+			<rd:DataSourceID>5f0e8c2a-3b1d-4c7e-9a52-1d6b8f4e7a10</rd:DataSourceID>
+		</DataSource>
+	</DataSources>
+	<DataSets>
+		<DataSet Name="StudentDataSet">
+			<Query>
+				<DataSourceName>SchoolDB</DataSourceName>
+				<CommandText>/* Local Query */</CommandText>
+			</Query>
+			<Fields>
+				<Field Name="StudentID">
+					<DataField>StudentID</DataField>
+					<rd:TypeName>System.Int32</rd:TypeName>
+				</Field>
+				<Field Name="FirstName">
+					<DataField>FirstName</DataField>
+					<rd:TypeName>System.String</rd:TypeName>
+				</Field>
+				<Field Name="LastName">
+					<DataField>LastName</DataField>
+					<rd:TypeName>System.String</rd:TypeName>
+				</Field>
+				<Field Name="Grade">
+					<DataField>Grade</DataField>
+					<rd:TypeName>System.Decimal</rd:TypeName>
+				</Field>
+			</Fields>
+		</DataSet>
+	</DataSets>
+	<ReportSections>
+		<ReportSection>
+			<Body>
+				<ReportItems>
+					<Textbox Name="ReportTitle">
+						<CanGrow>true</CanGrow>
+						<KeepTogether>true</KeepTogether>
+						<Paragraphs>
+							<Paragraph>
+								<TextRuns>
+									<TextRun>
+										<Value>Student List for Selected Course</Value>
+										<Style>
+											<FontSize>18pt</FontSize>
+											<FontWeight>Bold</FontWeight>
+										</Style>
+									</TextRun>
+								</TextRuns>
+								<Style>
+									<TextAlign>Center</TextAlign>
+								</Style>
+							</Paragraph>
+						</Paragraphs>
+						<Top>0in</Top>
+						<Left>0in</Left>
+						<Height>0.4in</Height>
+						<Width>6in</Width>
+						<Style />
+					</Textbox>
+					<Textbox Name="CourseTitleBox">
+						<CanGrow>true</CanGrow>
+						<KeepTogether>true</KeepTogether>
+						<Paragraphs>
+							<Paragraph>
+								<TextRuns>
+									<TextRun>
+										<Value>="Course: " &amp; Parameters!CourseTitle.Value</Value>
+										<Style>
+											<FontSize>12pt</FontSize>
+										</Style>
+									</TextRun>
+								</TextRuns>
+								<Style>
+									<TextAlign>Center</TextAlign>
+								</Style>
+							</Paragraph>
+						</Paragraphs>
+						<Top>0.5in</Top>
+						<Left>0in</Left>
+						<Height>0.3in</Height>
+						<Width>6in</Width>
+						<Style />
+					</Textbox>
+					<Tablix Name="StudentTable">
+						<TablixBody>
+							<TablixColumns>
+								<TablixColumn>
+									<Width>1.2in</Width>
+								</TablixColumn>
+								<TablixColumn>
+									<Width>1.8in</Width>
+								</TablixColumn>
+								<TablixColumn>
+									<Width>1.8in</Width>
+								</TablixColumn>
+								<TablixColumn>
+									<Width>1.2in</Width>
+								</TablixColumn>
+							</TablixColumns>
+							<TablixRows>
+								<TablixRow>
+									<Height>0.3in</Height>
+									<TablixCells>
+										<TablixCell>
+											<CellContents>
+												<Textbox Name="HeaderStudentID">
+													<CanGrow>true</CanGrow>
+													<KeepTogether>true</KeepTogether>
+													<Paragraphs>
+														<Paragraph>
+															<TextRuns>
+																<TextRun>
+																	<Value>Student ID</Value>
+																	<Style>
+																		<FontWeight>Bold</FontWeight>
+																	</Style>
+																</TextRun>
+															</TextRuns>
+															<Style />
+														</Paragraph>
+													</Paragraphs>
+													<Style>
+														<Border>
+															<Style>Solid</Style>
+														</Border>
+														<BackgroundColor>LightGrey</BackgroundColor>
+														<PaddingLeft>4pt</PaddingLeft>
+														<PaddingRight>4pt</PaddingRight>
+														<PaddingTop>4pt</PaddingTop>
+														<PaddingBottom>4pt</PaddingBottom>
+													</Style>
+												</Textbox>
+											</CellContents>
+										</TablixCell>
+										<TablixCell>
+											<CellContents>
+												<Textbox Name="HeaderFirstName">
+													<CanGrow>true</CanGrow>
+													<KeepTogether>true</KeepTogether>
+													<Paragraphs>
+														<Paragraph>
+															<TextRuns>
+																<TextRun>
+																	<Value>First Name</Value>
+																	<Style>
+																		<FontWeight>Bold</FontWeight>
+																	</Style>
+																</TextRun>
+															</TextRuns>
+															<Style />
+														</Paragraph>
+													</Paragraphs>
+													<Style>
+														<Border>
+															<Style>Solid</Style>
+														</Border>
+														<BackgroundColor>LightGrey</BackgroundColor>
+														<PaddingLeft>4pt</PaddingLeft>
+														<PaddingRight>4pt</PaddingRight>
+														<PaddingTop>4pt</PaddingTop>
+														<PaddingBottom>4pt</PaddingBottom>
+													</Style>
+												</Textbox>
+											</CellContents>
+										</TablixCell>
+										<TablixCell>
+											<CellContents>
+												<Textbox Name="HeaderLastName">
+													<CanGrow>true</CanGrow>
+													<KeepTogether>true</KeepTogether>
+													<Paragraphs>
+														<Paragraph>
+															<TextRuns>
+																<TextRun>
+																	<Value>Last Name</Value>
+																	<Style>
+																		<FontWeight>Bold</FontWeight>
+																	</Style>
+																</TextRun>
+															</TextRuns>
+															<Style />
+														</Paragraph>
+													</Paragraphs>
+													<Style>
+														<Border>
+															<Style>Solid</Style>
+														</Border>
+														<BackgroundColor>LightGrey</BackgroundColor>
+														<PaddingLeft>4pt</PaddingLeft>
+														<PaddingRight>4pt</PaddingRight>
+														<PaddingTop>4pt</PaddingTop>
+														<PaddingBottom>4pt</PaddingBottom>
+													</Style>
+												</Textbox>
+											</CellContents>
+										</TablixCell>
+										<TablixCell>
+											<CellContents>
+												<Textbox Name="HeaderGrade">
+													<CanGrow>true</CanGrow>
+													<KeepTogether>true</KeepTogether>
+													<Paragraphs>
+														<Paragraph>
+															<TextRuns>
+																<TextRun>
+																	<Value>Grade</Value>
+																	<Style>
+																		<FontWeight>Bold</FontWeight>
+																	</Style>
+																</TextRun>
+															</TextRuns>
+															<Style />
+														</Paragraph>
+													</Paragraphs>
+													<Style>
+														<Border>
+															<Style>Solid</Style>
+														</Border>
+														<BackgroundColor>LightGrey</BackgroundColor>
+														<PaddingLeft>4pt</PaddingLeft>
+														<PaddingRight>4pt</PaddingRight>
+														<PaddingTop>4pt</PaddingTop>
+														<PaddingBottom>4pt</PaddingBottom>
+													</Style>
+												</Textbox>
+											</CellContents>
+										</TablixCell>
+									</TablixCells>
+								</TablixRow>
+								<TablixRow>
+									<Height>0.3in</Height>
+									<TablixCells>
+										<TablixCell>
+											<CellContents>
+												<Textbox Name="StudentID">
+													<CanGrow>true</CanGrow>
+													<KeepTogether>true</KeepTogether>
+													<Paragraphs>
+														<Paragraph>
+															<TextRuns>
+																<TextRun>
+																	<Value>=Fields!StudentID.Value</Value>
+																	<Style />
+																</TextRun>
+															</TextRuns>
+															<Style />
+														</Paragraph>
+													</Paragraphs>
+													<Style>
+														<Border>
+															<Style>Solid</Style>
+														</Border>
+														<PaddingLeft>4pt</PaddingLeft>
+														<PaddingRight>4pt</PaddingRight>
+														<PaddingTop>4pt</PaddingTop>
+														<PaddingBottom>4pt</PaddingBottom>
+													</Style>
+												</Textbox>
+											</CellContents>
+										</TablixCell>
+										<TablixCell>
+											<CellContents>
+												<Textbox Name="FirstName">
+													<CanGrow>true</CanGrow>
+													<KeepTogether>true</KeepTogether>
+													<Paragraphs>
+														<Paragraph>
+															<TextRuns>
+																<TextRun>
+																	<Value>=Fields!FirstName.Value</Value>
+																	<Style />
+																</TextRun>
+															</TextRuns>
+															<Style />
+														</Paragraph>
+													</Paragraphs>
+													<Style>
+														<Border>
+															<Style>Solid</Style>
+														</Border>
+														<PaddingLeft>4pt</PaddingLeft>
+														<PaddingRight>4pt</PaddingRight>
+														<PaddingTop>4pt</PaddingTop>
+														<PaddingBottom>4pt</PaddingBottom>
+													</Style>
+												</Textbox>
+											</CellContents>
+										</TablixCell>
+										<TablixCell>
+											<CellContents>
+												<Textbox Name="LastName">
+													<CanGrow>true</CanGrow>
+													<KeepTogether>true</KeepTogether>
+													<Paragraphs>
+														<Paragraph>
+															<TextRuns>
+																<TextRun>
+																	<Value>=Fields!LastName.Value</Value>
+																	<Style />
+																</TextRun>
+															</TextRuns>
+															<Style />
+														</Paragraph>
+													</Paragraphs>
+													<Style>
+														<Border>
+															<Style>Solid</Style>
+														</Border>
+														<PaddingLeft>4pt</PaddingLeft>
+														<PaddingRight>4pt</PaddingRight>
+														<PaddingTop>4pt</PaddingTop>
+														<PaddingBottom>4pt</PaddingBottom>
+													</Style>
+												</Textbox>
+											</CellContents>
+										</TablixCell>
+										<TablixCell>
+											<CellContents>
+												<Textbox Name="Grade">
+													<CanGrow>true</CanGrow>
+													<KeepTogether>true</KeepTogether>
+													<Paragraphs>
+														<Paragraph>
+															<TextRuns>
+																<TextRun>
+																	<Value>=Fields!Grade.Value</Value>
+																	<Style>
+																		<Format>0.00</Format>
+																	</Style>
+																</TextRun>
+															</TextRuns>
+															<Style />
+														</Paragraph>
+													</Paragraphs>
+													<Style>
+														<Border>
+															<Style>Solid</Style>
+														</Border>
+														<PaddingLeft>4pt</PaddingLeft>
+														<PaddingRight>4pt</PaddingRight>
+														<PaddingTop>4pt</PaddingTop>
+														<PaddingBottom>4pt</PaddingBottom>
+													</Style>
+												</Textbox>
+											</CellContents>
+										</TablixCell>
+									</TablixCells>
+								</TablixRow>
+							</TablixRows>
+						</TablixBody>
+						<TablixColumnHierarchy>
+							<TablixMembers>
+								<TablixMember />
+								<TablixMember />
+								<TablixMember />
+								<TablixMember />
+							</TablixMembers>
+						</TablixColumnHierarchy>
+						<TablixRowHierarchy>
+							<TablixMembers>
+								<TablixMember>
+									<KeepWithGroup>After</KeepWithGroup>
+									<RepeatOnNewPage>true</RepeatOnNewPage>
+								</TablixMember>
+								<TablixMember>
+									<Group Name="Details" />
+								</TablixMember>
+							</TablixMembers>
+						</TablixRowHierarchy>
+						<DataSetName>StudentDataSet</DataSetName>
+						<Top>1in</Top>
+						<Left>0in</Left>
+						<Height>0.6in</Height>
+						<Width>6in</Width>
+						<Style />
+					</Tablix>
+				</ReportItems>
+				<Height>1.7in</Height>
+				<Style />
+			</Body>
+			<Width>6in</Width>
+			<Page>
+				<PageFooter>
+					<Height>0.4in</Height>
+					<PrintOnFirstPage>true</PrintOnFirstPage>
+					<PrintOnLastPage>true</PrintOnLastPage>
+					<ReportItems>
+						<Textbox Name="PageNumberBox">
+							<CanGrow>true</CanGrow>
+							<KeepTogether>true</KeepTogether>
+							<Paragraphs>
+								<Paragraph>
+									<TextRuns>
+										<TextRun>
+											<Value>="Page " &amp; Globals!PageNumber &amp; " of " &amp; Globals!TotalPages</Value>
+											<Style>
+												<FontSize>9pt</FontSize>
+											</Style>
+										</TextRun>
+									</TextRuns>
+									<Style>
+										<TextAlign>Center</TextAlign>
+									</Style>
+								</Paragraph>
+							</Paragraphs>
+							<Top>0.05in</Top>
+							<Left>0in</Left>
+							<Height>0.25in</Height>
+							<Width>6in</Width>
+							<Style />
+						</Textbox>
+					</ReportItems>
+					<Style />
+				</PageFooter>
+				<PageHeight>11in</PageHeight>
+				<PageWidth>8.5in</PageWidth>
+				<LeftMargin>1in</LeftMargin>
+				<RightMargin>1in</RightMargin>
+				<TopMargin>1in</TopMargin>
+				<BottomMargin>1in</BottomMargin>
+				<Style />
+			</Page>
+		</ReportSection>
+	</ReportSections>
+	<ReportParameters>
+		<ReportParameter Name="CourseTitle">
+			<DataType>String</DataType>
+			<Prompt>CourseTitle</Prompt>
+		</ReportParameter>
+	</ReportParameters>
+	<rd:ReportUnitType>Inch</rd:ReportUnitType>
+	<rd:ReportID>8a3d6c1e-7b24-4f0a-b5d9-2e91c4a7f630</rd:ReportID>
+</Report>
