@@ -10,6 +10,7 @@ using StudentsApp;
 
 namespace StudentsApp.Controllers
 {
+    [Authorize]
     public class DepartmentsController : Controller
     {
         private SchoolDBEntities db = new SchoolDBEntities();

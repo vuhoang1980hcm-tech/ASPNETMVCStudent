@@ -51,7 +51,7 @@ namespace StudentsApp
     }
 
     [MetadataType(typeof(CourseMetadata))]
-    public partial class Course { }
+    public partial class Courses { }
 
     public class CourseMetadata
     {

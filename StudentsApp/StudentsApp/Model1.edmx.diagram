@@ -13,6 +13,7 @@
         <AssociationConnector Association="SchoolDBModel.FK__Courses__Departm__4E88ABD4" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK__Enrollmen__Cours__534D60F1" ManuallyRouted="false" />
         <AssociationConnector Association="SchoolDBModel.FK__Enrollmen__Stude__5441852A" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SchoolDBModel.tblUser" Width="1.5" PointX="7.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
